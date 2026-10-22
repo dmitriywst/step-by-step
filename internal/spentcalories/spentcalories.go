@@ -39,6 +39,10 @@ func parseTraining(data string) (int, string, time.Duration, error) {
 		return 0, "", 0, err
 	}
 
+	if duration <= 0 {
+		return 0, "", 0, errors.New("продолжительность должна быть больше нуля")
+	}
+
 	return steps, activity, duration, nil
 }
 
